@@ -2,7 +2,7 @@
 <configuration>
 	<!-- 定义日志输出格式 -->
     <property name="LOG_PATTERN" value="%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level %class:%line - %msg%n"/>
-    <property name="LOG_FILE_PATH" value="/data/logs/hzf_platform_manager/"/>
+    <property name="LOG_FILE_PATH" value="/tmp/logs/hzf_platform_manager/"/>
     
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<!-- encoder 默认配置为PatternLayoutEncoder -->

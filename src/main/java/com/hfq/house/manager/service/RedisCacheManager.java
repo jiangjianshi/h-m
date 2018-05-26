@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 @Component("redisCacheManager")
 public class RedisCacheManager {
 
-    @Resource(name = "hzfRedisTemplate")
+//    @Resource(name = "hzfRedisTemplate")
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
