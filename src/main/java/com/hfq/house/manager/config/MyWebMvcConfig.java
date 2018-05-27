@@ -1,8 +1,12 @@
 package com.hfq.house.manager.config;
 
+import com.hfq.house.manager.interceptor.LoginInterceptor;
+import com.hfq.house.manager.interceptor.PageInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;
+
+import javax.annotation.Resource;
 
 /**
  * 
@@ -12,6 +16,13 @@ import org.springframework.web.servlet.config.annotation.*;
 @Configuration
 @EnableWebMvc
 public class MyWebMvcConfig implements WebMvcConfigurer {
+
+	@Resource
+	private PageInterceptor pageInterceptor;
+
+	@Resource
+	private LoginInterceptor loginInterceptor;
+
 
 	@Bean
 	public WebMvcConfigurationSupport forwardToIndex() {
@@ -34,4 +45,10 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
 		registry.addResourceHandler("/statics/**").addResourceLocations("classpath:/statics/");
 	}
 
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(loginInterceptor);
+		registry.addInterceptor(pageInterceptor);
+	}
 }
